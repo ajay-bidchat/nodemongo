@@ -1,8 +1,9 @@
-const router = new require('express').Router();
+const router = require('express').Router();
 const User = require('../models/user');
 const auth = require('../middlewares/auth');
 const multer = require('multer');
 const sharp = require('sharp');
+const log = require('debug')('routes:users');
 
 const allowedExts = /\.(jpg|jpeg|png)$/;
 
@@ -12,7 +13,7 @@ const upload = multer({
         fileSize: 1000000
     },
     fileFilter(req, file, cb) {
-        console.log(file.mimetype);
+        log(file.mimetype);
         if (!file.originalname.match(allowedExts))
             return cb(new Error('Only jpg,jpeg and png imag file is accepted'));
         cb(undefined, true);
@@ -28,6 +29,7 @@ router.post('/', async (req, res) => {
         res.set('Authorization', 'Bearer ' + token);
         res.status(201).send({ user, token });
     } catch (err) {
+        log(err);
         res.status(400).send(err);
     }
 });
