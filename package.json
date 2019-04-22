@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "env-cmd ./config/test.env jest",
+    "test": "env-cmd ./config/test.env jest --runInBand",
     "start": "node src/index.js",
     "dev-node": "env-cmd ./config/dev.env node src/index.js",
     "dev": "env-cmd ./config/dev.env nodemon src/index.js"
