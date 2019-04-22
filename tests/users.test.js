@@ -6,12 +6,7 @@ const User = require('../src/models/user');
 
 const { _id, user1, setupDatabase } = require('./fixtures/db');
 
-jest.setTimeout(13000);
-
-// beforeEach(async () => {
-//     await User.deleteMany();
-//     await new User(user1).save();
-// });
+jest.setTimeout(15000);
 
 beforeEach(setupDatabase);
 
