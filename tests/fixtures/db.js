@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 const User = require('../../src/models/user');
+
+const mongoose = require('../../src/db/mongoose');
 
 const _id = new mongoose.Types.ObjectId();
 
@@ -21,8 +22,13 @@ const setupDatabase = async () => {
     await new User(user1).save();
 };
 
+const tearDown = async() => {
+    await mongoose.disconnect();
+}
+
 module.exports = {
     _id,
     user1,
-    setupDatabase
+    setupDatabase,
+    tearDown
 };

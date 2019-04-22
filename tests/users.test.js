@@ -4,11 +4,13 @@ const app = require('../src/app');
 
 const User = require('../src/models/user');
 
-const { _id, user1, setupDatabase } = require('./fixtures/db');
+const { _id, user1, setupDatabase, tearDown } = require('./fixtures/db');
 
 jest.setTimeout(15000);
 
 beforeEach(setupDatabase);
+
+afterAll(tearDown);
 
 test("Should signup a new user", async () => {
     const response = await request(app)

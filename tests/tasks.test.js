@@ -4,9 +4,11 @@ const app = require('../src/app');
 
 const Task = require('../src/models/task');
 
-const { _id, user1, setupDatabase } = require('./fixtures/db');
+const { _id, user1, setupDatabase, tearDown } = require('./fixtures/db');
 
 beforeEach(setupDatabase);
+
+afterAll(tearDown);
 
 jest.setTimeout(13000);
 
