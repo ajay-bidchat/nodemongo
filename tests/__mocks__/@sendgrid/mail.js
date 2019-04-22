@@ -1,9 +1,9 @@
 module.exports = {
-    setApiKey() {
-
+    setApiKey(apikey) {
+        console.log(apikey);
     },
 
-    send() {
-        
+    send(msg) {
+        return Promise.resolve(msg);
     }
 }

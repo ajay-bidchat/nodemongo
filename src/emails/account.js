@@ -13,3 +13,5 @@ const msg = {
 sgMail.send(msg).then((res) => {
     console.log(res)
 });
+
+module.exports = sgMail;

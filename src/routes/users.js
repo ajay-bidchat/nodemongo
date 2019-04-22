@@ -5,6 +5,8 @@ const multer = require('multer');
 const sharp = require('sharp');
 const log = require('debug')('routes:users');
 
+const mail = require('../emails/account');
+
 const allowedExts = /\.(jpg|jpeg|png)$/;
 
 const upload = multer({
